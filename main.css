@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    background: #000;
+    color: #fff;
+}
+
+.container {
+    display: block;
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.wrapper.padding {
+    padding: 4em;
+}
+
+.title {
+    display: block;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+h1.title {
+    font-size: 2.5em;
+}
+h2.title {
+    font-size: 2em;
+}
+
+.btn {
+    padding: .5em 1.5em;
+    border-radius: 2em;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    -ms-border-radius: 2em;
+    -o-border-radius: 2em;
+    background: #fff;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Navigation */
+
+.main-navigation {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+}
+.main-navigation-wrapper {
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.main-navigation-wrapper .burger {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: #fff;
+}
+
+
+.main-navigation {
+    display: block;
+    margin: auto;
+}
+
+.main-navigation-wrapper .signature {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+.main-navigation-wrapper .signature span {
+    display: inline-block;
+    padding: 0 0.5em;
+}
+.main-navigation-wrapper .signature span:not(:first-child) {
+    border-left: 2px solid #fff;
+}
+
+.main-navigation-wrapper .contact-us {
+}
+
+
+/* Landing section */
+
+#landing {
+    display: block;
+    min-height: 100vh;
+    background: url('./img/landing-photo.jpg') rgba(0,0,0,0.25);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+}
+#landing .main-logo {
+    display: block;
+    width: 24em;
+    margin: 0 auto;
+    padding-top: 12em;
+}
+
+
+
+
