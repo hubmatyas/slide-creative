@@ -24,15 +24,23 @@
 		<nav class="main-navigation">
 			<div class="wrapper">
 				<div class="main-navigation-wrapper">
-					<div class="burger">
-						<span></span>
-						<span></span>
-					</div>
+                    <div class="menu">
+                        <a class="burger">
+                            <span></span>
+                            <span></span>
+                        </a>
+                        <ul class="menu-items">
+                            <li><a href="">Úvod</a></li>
+                            <li><a href="">Naše práce</a></li>
+                            <li><a href="">O nás</a></li>
+                            <li><a href="">Kontakt</a></li>
+                        </ul>
+                    </div>
 					<div class="signature">
 						<span>Štěpán Ferkl</span>
 						<span>Alexandr Zikmund</span>
 					</div>
-					<a href="" class="btn contact-us">Kontaktujte nás</a>
+					<a href="mailto:info@slidecreative.cz" class="btn contact-us">Kontaktujte nás</a>
 				</div>
 			</div>
 		</nav>
@@ -49,19 +57,19 @@
                 <h2 class="title">Kde jsi nás mohl potkat?</h2>
                 <div class="products-list">
                     <a>
-                        <figure><img src="" alt=""></figure>
+                        <img src="./img/landing-photo.jpg" alt="">
                         <span>Maturáky</span>
                     </a>
                     <a>
-                        <figure><img src="" alt=""></figure>
+                        <img src="./img/landing-photo.jpg" alt="">
                         <span>Svatby</span>
                     </a>
                     <a>
-                        <figure><img src="" alt=""></figure>
+                        <img src="./img/landing-photo.jpg" alt="">
                         <span>Live eventy</span>
                     </a>
                     <a>
-                        <figure><img src="" alt=""></figure>
+                        <img src="./img/landing-photo.jpg" alt="">
                         <span>Portréty</span>
                     </a>
                 </div>
@@ -72,18 +80,26 @@
             <div class="wrapper padding">
                 <h2 class="title">Sleduješ nás na instagramu?</h2>
 
+
+                <ul id="instafeed"></ul>
+
                 <!-- tady by se měly vypisovat fotky z instagramu, to bych měl ještě nějak doladit -->
             </div>
         </section>
 
 
         <section id="contact-promo">
-            <h2 class="title contact-title">Nenašli jsi, co hledáš?</h2>
-            <h3 class="title contact-title">neváhej nás kontaktovat!</h3>
-            <a href="" class="btn contact-cta">Kontakt</a>
+            <h2 class="title contact-title">Nenašel jsi, co hledáš?</h2>
+            <h3 class="title contact-title">Neváhej nás kontaktovat!</h3>
+            <a href="mailto:info@slidecreative.cz" class="btn contact-cta">Kontakt</a>
         </section>
 
         <footer>
+            <div class="wrapper">
+                       <!--
+
+            Zatím to nechám být, nemá to cenu dokud není nějakej extra content
+
             <div class="footer-wrapper">
                 <a href=""><img src="" alt="" class="footer-logo"></a>
 				<ul class="footer-navigation">
@@ -94,12 +110,14 @@
 					<li><a href="#">Kontakt</a></li>
 				</ul>
             </div>
-            <p>&copy; Slide Creative 
+            -->
+            <p>&copy; Slide Creative <div id="current-year"></div>
                 <script>
-                    var CurrentYear = new Date().getFullYear()
-                    document.write(CurrentYear)
+                    
+
                 </script>
             </p>
+            </div>
         </footer>
     </div>
 
@@ -108,6 +126,6 @@
     </div>
 
 
-    <script src="js/main.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

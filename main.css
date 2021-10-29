@@ -26,6 +26,8 @@ body {
 .container {
     display: block;
     position: relative;
+    /* for footer, change later */
+    padding-bottom: 8em;
 }
 
 .wrapper {
@@ -33,22 +35,27 @@ body {
     display: block;
     margin: 0 auto;
     max-width: 1200px;
+    padding: 0 2em;
 }
 .wrapper.padding {
     padding: 4em;
 }
 
+/* měl bych se podívat na to, jak se zapisuje ten title, tohle je fakt na pytel */
+
 .title {
     display: block;
     text-align: center;
-    font-weight: 800;
     text-transform: uppercase;
 }
 h1.title {
+    font-weight: 800;
     font-size: 2.5em;
 }
 h2.title {
     font-size: 2em;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
 .btn {
@@ -63,6 +70,14 @@ h2.title {
     font-weight: 500;
 }
 
+.btn:hover {
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+}
+
 /* Navigation */
 
 .main-navigation {
@@ -72,6 +87,8 @@ h2.title {
     left: 0;
     right: 0;
     display: block;
+    z-index: 1000;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0));
 }
 .main-navigation-wrapper {
     padding: 1em 0;
@@ -81,7 +98,28 @@ h2.title {
     flex: 1;
 }
 
-.main-navigation-wrapper .burger {
+.menu .menu-items {
+    display: none;
+}
+
+.menu.active .menu-items {
+    display: block;
+}
+
+.menu-items li {
+    display: block;
+    text-align: center;
+}
+
+.menu-items li a {
+    font-weight: 300;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+
+.menu .burger {
+    display: block;
     width: 2em;
     height: 2em;
     border-radius: 50%;
@@ -90,6 +128,66 @@ h2.title {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     background: #fff;
+    position: relative;
+}
+
+.menu.active .burger {
+    margin-left: auto;
+}
+
+.menu .burger:hover {
+    background: #d9d9d9;
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+    -webkit-transition: .6s all ease-in-out;
+    -moz-transition: .6s all ease-in-out;
+    -ms-transition: .6s all ease-in-out;
+    -o-transition: .6s all ease-in-out;
+}
+
+.burger span {
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    background: #000;
+    transition: .3s all ease-in-out;
+    -webkit-transition: .3s all ease-in-out;
+    -moz-transition: .3s all ease-in-out;
+    -ms-transition: .3s all ease-in-out;
+    -o-transition: .3s all ease-in-out;
+}
+
+.burger span:nth-child(1) {
+    top: 40%;
+}
+.burger span:nth-child(2) {
+    top: 60%;
+}
+
+.menu.active .burger.active span:nth-child(1) {
+    left: 45%;
+    top: 67%;
+    transform: rotate(45deg) translate(-50%,0%);
+    -webkit-transform: rotate(45deg) translate(-50%,0%);
+    -moz-transform: rotate(45deg) translate(-50%,0%);
+    -ms-transform: rotate(45deg) translate(-50%,0%);
+    -o-transform: rotate(45deg) translate(-50%,0%);
+}
+
+.menu.active .burger.active span:nth-child(2) {
+    left: 45%;
+    top: 32%;
+    transform: rotate(-45deg) translate(-50%,0%);
+    -webkit-transform: rotate(-45deg) translate(-50%,0%);
+    -moz-transform: rotate(-45deg) translate(-50%,0%);
+    -ms-transform: rotate(-45deg) translate(-50%,0%);
+    -o-transform: rotate(-45deg) translate(-50%,0%);
 }
 
 
@@ -122,10 +220,10 @@ h2.title {
     min-height: 100vh;
     background: url('./img/landing-photo.jpg') rgba(0,0,0,0.25);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: 120%;
+    background-position: 40% 50%;
     background-attachment: fixed;
-    background-blend-mode: multiply;
+    background-blend-mode: darken;
 }
 #landing .main-logo {
     display: block;
@@ -134,6 +232,86 @@ h2.title {
     padding-top: 12em;
 }
 
+
+.products-list {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+
+#contact-promo .contact-cta {
+    display: block;
+    width: max-content;
+    margin: 2em auto 0 auto;
+}
+
+
+.products-list a {
+    display: inline-block;
+    width: 23%;
+    height: 20em;
+    position: relative;
+    overflow: hidden;
+}
+
+.products-list a img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: block;
+    filter: brightness(90%);
+    -webkit-filter: brightness(90%);
+    transition: .3 all ease-in-out;
+    -webkit-transition: .3 all ease-in-out;
+    -moz-transition: .3 all ease-in-out;
+    -ms-transition: .3 all ease-in-out;
+    -o-transition: .3 all ease-in-out;
+}
+.products-list a:hover img {
+    top: -2em;
+    left: -2em;
+    bottom: -2em;
+    right: -2em;
+    filter: brightness(80%);
+    -webkit-filter: brightness(80%);
+}
+
+.products-list a span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 3;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 300;
+    text-transform: uppercase;
+
+}
+
+#instagram-promo {
+    background: #fff;
+    color: #000;
+
+}
+
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em 0;
+}
 
 
 
