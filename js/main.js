@@ -9,10 +9,6 @@ window.addEventListener('load', (event) => {
         menu.classList.toggle('active');
     });
     
-    
-    
-    document.getElementById('current-year').appendChild(document.createTextNode(new Date().getFullYear()))
-
 
 
 
@@ -21,9 +17,9 @@ window.addEventListener('load', (event) => {
     // Landing page parallax on mousemove
     document.addEventListener("mousemove", parallax);
     function parallax(e) {
-            const x = (window.innerWidth - e.pageX*1) / 200;
-            const y = (window.innerHeight - e.pageY*1) / 250;
-            this.querySelector('#landing').style.backgroundPosition = `${x}% ${y}%`;
+            const x = (window.innerWidth - e.pageX) / 100;
+            const y = (window.innerHeight - e.pageY) / 200;
+            this.querySelector('#landing .foreground').style.transform = `translate(${x}px, ${y}px)`;
         
     }
 

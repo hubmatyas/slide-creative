@@ -6,6 +6,11 @@
     padding: 0;
 }
 
+*::selection,
+*::-moz-selection {
+    background: rgba(256,256,256, 0.4)
+}
+
 ul, li {
     list-style-type: none;
 }
@@ -27,7 +32,7 @@ body {
     display: block;
     position: relative;
     /* for footer, change later */
-    padding-bottom: 8em;
+    padding-bottom: 4em;
 }
 
 .wrapper {
@@ -57,6 +62,12 @@ h2.title {
     font-weight: 300;
     letter-spacing: 2px;
 }
+h3.title {
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: none;
+}
 
 .btn {
     padding: .5em 1.5em;
@@ -68,14 +79,6 @@ h2.title {
     background: #fff;
     color: #000;
     font-weight: 500;
-}
-
-.btn:hover {
-    border-radius: .5em;
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    -ms-border-radius: .5em;
-    -o-border-radius: .5em;
 }
 
 /* Navigation */
@@ -117,7 +120,6 @@ h2.title {
     text-transform: uppercase;
 }
 
-
 .menu .burger {
     display: block;
     width: 2em;
@@ -129,6 +131,8 @@ h2.title {
     -o-border-radius: 50%;
     background: #fff;
     position: relative;
+    /* prozatím */
+    opacity: 0;
 }
 
 .menu.active .burger {
@@ -216,20 +220,31 @@ h2.title {
 /* Landing section */
 
 #landing {
+    position: relative;
     display: block;
-    min-height: 100vh;
-    background: url('./img/landing-photo.jpg') rgba(0,0,0,0.25);
+    height: 100vh;
+    background: url('./img/landing-background.jpg') rgba(0,0,0,0.25);
     background-repeat: no-repeat;
-    background-size: 120%;
-    background-position: 40% 50%;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     background-blend-mode: darken;
+    overflow: hidden;
 }
 #landing .main-logo {
     display: block;
     width: 24em;
     margin: 0 auto;
     padding-top: 12em;
+}
+
+#landing .foreground {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 110%;
+    left: -5%;
+    opacity: 0.8;
 }
 
 
@@ -241,11 +256,26 @@ h2.title {
     flex-wrap: nowrap;
 }
 
+#products .gallery-cta {
+    display: block;
+    width: max-content;
+    margin: 2em auto 0 auto;
+}
+
+
+#contact-promo {
+    padding: 4em 0;
+    background: #fff;
+    color: #000;
+}
+
 
 #contact-promo .contact-cta {
     display: block;
     width: max-content;
     margin: 2em auto 0 auto;
+    background: #000;
+    color: #fff;    
 }
 
 
@@ -257,29 +287,28 @@ h2.title {
     overflow: hidden;
 }
 
+.products-list a:nth-child(even) {
+    margin-top: 2em;
+}
+
 .products-list a img {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
-    left: 0;
+    width: 100%;
     z-index: 2;
     display: block;
-    filter: brightness(90%);
-    -webkit-filter: brightness(90%);
-    transition: .3 all ease-in-out;
-    -webkit-transition: .3 all ease-in-out;
-    -moz-transition: .3 all ease-in-out;
-    -ms-transition: .3 all ease-in-out;
-    -o-transition: .3 all ease-in-out;
-}
-.products-list a:hover img {
-    top: -2em;
-    left: -2em;
-    bottom: -2em;
-    right: -2em;
     filter: brightness(80%);
     -webkit-filter: brightness(80%);
+    transition: .3s all ease-out;
+    -webkit-transition: .3s all ease-out;
+    -moz-transition: .3s all ease-out;
+    -ms-transition: .3s all ease-out;
+    -o-transition: .3s all ease-out;
+}
+.products-list a:hover img {
+    filter: brightness(90%);
+    -webkit-filter: brightness(90%);
 }
 
 .products-list a span {
@@ -293,17 +322,20 @@ h2.title {
     font-size: 1.5em;
     color: #fff;
     font-weight: 300;
+    letter-spacing: 2px;
     text-transform: uppercase;
-
+    text-shadow: 3px 2px 3px #1C1C1C;
+    transition: .3s all ease-out    /* ještě bych tu typografi měl promyslet */;
+    -webkit-transition: .3s all ease-out    /* ještě bych tu typografi měl promyslet */;
+    -moz-transition: .3s all ease-out    /* ještě bych tu typografi měl promyslet */;
+    -ms-transition: .3s all ease-out    /* ještě bych tu typografi měl promyslet */;
+    -o-transition: .3s all ease-out    /* ještě bych tu typografi měl promyslet */;
 }
 
-#instagram-promo {
-    background: #fff;
-    color: #000;
-
+.products-list a:hover span {
+    bottom: .5em;
+    text-shadow: 5px 4px 3px #1C1C1C;
 }
-
-
 
 footer {
     position: absolute;
@@ -313,5 +345,83 @@ footer {
     padding: 1em 0;
 }
 
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+}
 
+.lightbox {
+    margin: 50% auto 0 auto;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    display: block;
+    width: max-content;
+}
+
+@media only screen and (max-width: 1100px) {
+    #landing  {  
+        height: 70vh;
+    }
+    #landing .foreground {
+        width: 140%;
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+
+    #landing {
+        height: 60vh;
+    }
+    .products-list {
+        flex-wrap: wrap;
+    }
+    .products-list a {
+        width: 48%;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    #landing {
+        height: 60vh;
+    }
+    #landing .foreground {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .main-navigation-wrapper {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+    }
+    .main-navigation-wrapper .contact-us {
+        display: block;
+        width: max-content;
+        margin-top: 1em
+    }
+    #landing .main-logo {
+        width: 80%;
+    }
+    h1.title {
+        font-size: 1.5em;
+    }
+    h2.title {
+        font-size: 1.3em;
+    }
+    h3.title {
+        font-size: 1.1em;
+    }
+}
 
